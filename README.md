@@ -1,5 +1,27 @@
 # DART
-A script for judging when to leave for the DART (Dublin Area Rapid Transit, it's a train line in Dublin).
+The DART is a train system in Dublin (Dublin Area Rapid Transit)
+
+It has an API, and so this is a script for judging when to leave for the DART.
+
+It will tell you the next few trains, their destination, departure time, and
+when you should leave your current location to catch them.
+
+## Help
+```bash
+$ ./dart.py --help
+usage: dart.py [-h] [-n] [-s] [-w WALK_TIME] departure_station
+
+positional arguments:
+  departure_station     The departure station
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n, --northbound      Provide this if you're going northbound
+  -s, --southbound      Provide this if you're going southbound
+  -w WALK_TIME, --walk-time WALK_TIME
+                        The walk time (in minutes) from where you are to the
+                        departure station
+```
 
 ## Example
 You want to leave from Tara Street, go southbound, and the walk time to the station is 10 mins
