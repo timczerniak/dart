@@ -55,19 +55,20 @@ def main():
         "departure_station",
         help="The departure station",
     )
-    parser.add_argument(
+    dir_grp = parser.add_mutually_exclusive_group(required=True)
+    dir_grp.add_argument(
         "-n", "--northbound",
         action="store_const",
         const="Northbound",
         dest="direction",
-        help="Provide this if you're going northbound",
+        help="Use this if you're going northbound",
     )
-    parser.add_argument(
+    dir_grp.add_argument(
         "-s", "--southbound",
         action="store_const",
         const="Southbound",
         dest="direction",
-        help="Provide this if you're going southbound",
+        help="Use this if you're going southbound",
     )
     parser.add_argument(
         "-w", "--walk-time",
