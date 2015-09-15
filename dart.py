@@ -44,7 +44,7 @@ def get_dom(url):
 
 def get_trains(station):
     url = "/realtime/realtime.asmx/getStationDataByNameXML" \
-          "?StationDesc=%s" % station
+          "?StationDesc=%s" % urllib.quote(station)
     dom = get_dom(url)
     return [Train(train_dom) for train_dom in dom]
 
@@ -79,7 +79,7 @@ def main():
     )
     args = parser.parse_args()
 
-    trains = get_trains(args.departure_station.replace(" ", "%20"))
+    trains = get_trains(args.departure_station)
 
     line_format = '{:<11s}  {:>6s}  {:>7s}  {:>6s}'
     print line_format.format("Destination", "Due", "Departs", "Leave", "")
